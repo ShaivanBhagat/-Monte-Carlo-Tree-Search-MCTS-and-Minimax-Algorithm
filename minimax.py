@@ -14,8 +14,6 @@ Year: 2017
 License: GNU GENERAL PUBLIC LICENSE (GPL)
 """
 
-# Code obtained from https://github.com/Cledersonbc/tic-tac-toe-minimax/blob/master/py_version/minimax.py
-# Code not modified here
 
 HUMAN = -1
 COMP = +1
