@@ -6,11 +6,6 @@ Created on Sun Nov 12 22:06:01 2023
 @author: shaivan
 """
 
-# Original code obtained from https://gist.github.com/qpwo/c538c6f73727e254fdc7fab81024f6e1
-# code modified here to include refactoring
-# everwhere where code has been changed, is mentioned through comments.
-# the changed code is explained in the report 
-
 from abc import ABC, abstractmethod
 from collections import defaultdict
 import math
@@ -42,7 +37,7 @@ class MCTS:
         reward = self._simulate(leaf)
         self._backpropagate(path, reward)
 
-# CODE CHANGED HERE
+
     def _select(self, node):
         "Find an unexplored descendant of `node`"
         path = []
@@ -61,7 +56,7 @@ class MCTS:
         if node not in self.children:
             self.children[node] = node.find_children()
 
-# CODE CHANGED HERE 
+
     def _simulate(self, node):
         "Returns the reward for a random simulation (to completion) of `node`"
         invert_reward = True
@@ -78,14 +73,14 @@ class MCTS:
             self.Q[node] += reward
             reward = 1 - reward  # 1 for me is 0 for my enemy, and vice versa
 
-# CODE CHANGED HERE
+
     def _score(self, n):
         "Calculate score for a node"
         if self.N[n] == 0:
             return float("-inf")
         return self.Q[n] / self.N[n]
 
-# CODE CHANGED HERE
+
     def _uct_select(self, node):
         "Select a child of node, balancing exploration & exploitation"
         log_N_vertex = math.log(self.N[node])
@@ -124,7 +119,6 @@ class Node(ABC):
         "Assumes `self` is terminal node. 1=win, 0=loss, .5=tie, etc"
         return 0
 
-# CODE CHANGED HERE
     @abstractmethod
     def __eq__(self, other):
         "Nodes must be comparable"
