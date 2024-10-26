@@ -6,18 +6,12 @@ Created on Sun Nov 12 22:18:19 2023
 @author: shaivan
 """
 
-# Code obtained from https://github.com/Cledersonbc/tic-tac-toe-minimax/blob/master/py_version/minimax.py
-# Code modified here to include refactoring
-# everwhere where code has been changed, is mentioned through comments.
-# the changed code is explained in the report 
-
 
 from math import inf as infinity
 from random import choice
 import platform
-import time # Code changed
-import os # CODE CHANGED 
-# Time and os have been imported
+import time 
+import os 
 
 
 HUMAN = -1
@@ -153,7 +147,7 @@ def minimax(state, depth, player):
     return best
 
 
-# CODE CHANGED 
+
 def clean():
     """
     Clears the console
@@ -162,7 +156,7 @@ def clean():
     clear_command = 'cls' if 'windows' in os_name else 'clear'
     os.system(clear_command)
 
-# CODE CHANGED
+
 def render(state, c_choice, h_choice):
     """
     Print the board on the console
@@ -180,7 +174,7 @@ def render(state, c_choice, h_choice):
 
 
 # Define AI and human turns in separate functions for clarity
-# CODE CHANGED
+
 def ai_turn(c_choice, h_choice):
     """
     Initiates the AI's turn.
